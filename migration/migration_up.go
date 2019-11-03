@@ -11,30 +11,30 @@ type User struct {
 	Email string
 	Password string
 	Username string
-	ProfileImage string
-	PhoneNumber string
-	GameList []string
-	EventList []string
+	ProfileImage string `bson:"profileImage"`
+	PhoneNumber string `bson:"phoneNumber"`
+	GameList []string `bson:"gameList"`
+	EventList []string `bson:"eventList"`
 }
 type Comment struct {
 	Username string
-	ThreadComment string
+	ThreadComment string `bson:"threadComment"`
 }
 type Thread struct {
 	Name string
 	Category string
-	MakerUsername string
+	MakerUsername string `bson:"makerUsername"`
 	// MakerImage string
 	Description string
-	CommentList []Comment
+	CommentList []Comment `bson:"commentList"`
 }
 type Event struct {
 	Name string
 	Type string
 	Games string
 	Description string
-	DateStart string
-	DateEnd string
+	DateStart string `bson:"dateStart"`
+	DateEnd string `bson:"dateEnd"`
 	Tag string
 	Site string
 	Location string
