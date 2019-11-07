@@ -11,4 +11,6 @@ func Down(db *mongo.Database) {
 	db.Collection("user").Drop(context.TODO())
 	db.Collection("thread").Drop(context.TODO())
 	db.Collection("event").Drop(context.TODO())
+	db.Collection("comment").Drop(context.TODO())
+	db.Collection("bookmark").Drop(context.TODO())
 }
