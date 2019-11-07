@@ -21,8 +21,8 @@ type Event struct {
 
 func EventData(db *mongo.Database) {
 	col := db.Collection("event")
-	col.InsertMany(context.TODO(), make([]interface{}, len([]Event{
-		{
+	col.InsertOne(context.TODO(),
+		Event{
 			Name: "Event 1",
 			MakerUsername: "TestUser",
 			Type: "Competition",
@@ -40,8 +40,9 @@ func EventData(db *mongo.Database) {
 			Site: "Online",
 			Location: "Location 1",
 			Poster: "Image 1",
-		},
-		{
+		})
+	col.InsertOne(context.TODO(),
+		Event{
 			Name: "Event 2",
 			MakerUsername: "Admin",
 			Type: "Event",
@@ -57,6 +58,5 @@ func EventData(db *mongo.Database) {
 			Site: "Online",
 			Location: "Location 1",
 			Poster: "Image 1",
-		},
-	})))
+		})
 }

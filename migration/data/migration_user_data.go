@@ -16,8 +16,8 @@ type User struct {
 
 func UserData(db *mongo.Database){
 	col := db.Collection("user")
-	col.InsertMany(context.TODO(), make([]interface{}, len([]User{
-		{
+	col.InsertOne(context.TODO(),
+		User{
 			Email: "test@gmail.com",
 			Password: "password",
 			Username: "TestUser",
@@ -28,8 +28,10 @@ func UserData(db *mongo.Database){
 				"PUBG",
 				"YuGiOh",
 			},
-		},
-		{
+		})
+	col.InsertOne(context.TODO(),
+
+		User{
 			Email: "admin@gmail.com",
 			Password: "abcdef",
 			Username: "Admin",
@@ -38,6 +40,5 @@ func UserData(db *mongo.Database){
 			GameList: []string{
 				"Dota",
 			},
-		},
-	})))
+		})
 }

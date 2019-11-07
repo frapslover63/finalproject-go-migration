@@ -12,10 +12,9 @@ type Bookmark struct {
 
 func BookmarkData(db *mongo.Database) {
 	col := db.Collection("bookmark")
-	col.InsertMany(context.TODO(), make([]interface{}, len([]Bookmark{
-		{
+	col.InsertOne(context.TODO(),
+		Bookmark{
 			UserId: 0,
 			EventId: 0,
-		},
-	})))
+		})
 }
