@@ -16,6 +16,13 @@ func ThreadData(db *mongo.Database) {
 	col := db.Collection("thread")
 	col.InsertOne(context.TODO(),
 		Thread{
+			Name:          "Thread 1",
+			Category:      "Shooting",
+			MakerUsername: "TestUser",
+			Description:   "Description Thread 1",
+		})
+	col.InsertOne(context.TODO(),
+		Thread{
 			Name:          "Thread 2",
 			Category:      "Moba",
 			MakerUsername: "TestUser",
