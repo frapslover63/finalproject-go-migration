@@ -3,6 +3,7 @@ package data
 import (
 	"context"
 	"go.mongodb.org/mongo-driver/mongo"
+	"time"
 )
 // struct for dummy data
 type Event struct {
@@ -13,8 +14,8 @@ type Event struct {
 	Category []string `bson:"category"`
 	Description string `bson:"description"`
 	Site string `bson:"site"`
-	DateStart int `bson:"dateStart"`
-	DateEnd int `bson:"dateEnd"`
+	DateStart time.Time `bson:"dateStart"`
+	DateEnd time.Time `bson:"dateEnd"`
 	Location string `bson:"location"`
 	Poster string `bson:"poster"`
 }
@@ -35,8 +36,8 @@ func EventData(db *mongo.Database) {
 				"Shooting",
 			},
 			Description: "Description 1",
-			DateStart: 1257894000,
-			DateEnd: 1573436800,
+			DateStart: time.Date(2019, time.November, 10, 12, 0, 1, 0, time.UTC),
+			DateEnd: time.Date(2019, time.November, 12, 12, 0, 1, 0, time.UTC),
 			Site: "Online",
 			Location: "Location 1",
 			Poster: "Image 1",
@@ -53,8 +54,8 @@ func EventData(db *mongo.Database) {
 				"TCG",
 			},
 			Description: "Description 1",
-			DateStart: 1257894000,
-			DateEnd: 1573436800,
+			DateStart: time.Date(2019, time.November, 15, 12, 0, 1, 0, time.UTC),
+			DateEnd: time.Date(2019, time.November, 20, 12, 0, 1, 0, time.UTC),
 			Site: "Online",
 			Location: "Location 1",
 			Poster: "Image 1",
