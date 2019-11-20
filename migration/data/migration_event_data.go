@@ -17,6 +17,8 @@ type Event struct {
 	DateStart time.Time `bson:"dateStart"`
 	DateEnd time.Time `bson:"dateEnd"`
 	Location string `bson:"location"`
+	Latitude string `bson:"latitude"`
+	Longitude string `bson:"longitude"`
 	Poster string `bson:"poster"`
 }
 
@@ -36,11 +38,13 @@ func EventData(db *mongo.Database) {
 				"Shooting",
 			},
 			Description: "Description 1",
-			DateStart: time.Date(2019, time.November, 10, 12, 0, 1, 0, time.UTC),
-			DateEnd: time.Date(2019, time.November, 12, 12, 0, 1, 0, time.UTC),
+			DateStart: time.Now(),
+			DateEnd: time.Now(),
 			Site: "Online",
 			Location: "Location 1",
 			Poster: "Image 1",
+			Latitude: "-6.195415",
+			Longitude: "106.822329",
 		})
 	col.InsertOne(context.TODO(),
 		Event{
@@ -54,10 +58,12 @@ func EventData(db *mongo.Database) {
 				"TCG",
 			},
 			Description: "Description 1",
-			DateStart: time.Date(2019, time.November, 15, 12, 0, 1, 0, time.UTC),
-			DateEnd: time.Date(2019, time.November, 20, 12, 0, 1, 0, time.UTC),
+			DateStart: time.Now(),
+			DateEnd: time.Now(),
 			Site: "Online",
 			Location: "Location 1",
 			Poster: "Image 1",
+			Latitude: "-6.256272",
+			Longitude: "106.618268",
 		})
 }
