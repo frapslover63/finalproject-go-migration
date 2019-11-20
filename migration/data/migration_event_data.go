@@ -17,6 +17,8 @@ type Event struct {
 	DateStart time.Time `bson:"dateStart"`
 	DateEnd time.Time `bson:"dateEnd"`
 	Location string `bson:"location"`
+	Latitude string `bson:"latitude"`
+	Longitude string `bson:"longitude"`
 	Poster string `bson:"poster"`
 }
 
@@ -41,6 +43,8 @@ func EventData(db *mongo.Database) {
 			Site: "Online",
 			Location: "Location 1",
 			Poster: "Image 1",
+			Latitude: "-6.195415",
+			Longitude: "106.822329",
 		})
 	col.InsertOne(context.TODO(),
 		Event{
@@ -59,5 +63,7 @@ func EventData(db *mongo.Database) {
 			Site: "Online",
 			Location: "Location 1",
 			Poster: "Image 1",
+			Latitude: "-6.256272",
+			Longitude: "106.618268",
 		})
 }
